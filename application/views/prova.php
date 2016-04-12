@@ -1,0 +1,23 @@
+<?php  Template::extendsLayout('app'); ?>
+<?php  function content(){ ?>
+
+<h1> BENVENUTI </h1>
+<a href="home">Cliccami</a>
+<?php //print_r($all); ?>
+<?php
+/*$included_files = get_included_files();
+echo "test";
+foreach ($included_files as $filename) {
+    echo "$filename\n";
+}*/
+?>
+
+<?php } ?>
+
+<?php function menu(){ ?>
+  <li><a href="#">Action</a></li>
+  <li><a href="#">Another action</a></li>
+  <li><a href="#">Something else here</a></li>
+  <li role="separator" class="divider"></li>
+  <li><a href="#">Separated link</a></li>
+<?php } ?>

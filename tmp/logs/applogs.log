@@ -1,0 +1,44 @@
+[2016-02-07 20:16:03] Error: DbError  SQLSTATE[HY000] [2005] Unknown MySQL server host 'DB_HOST' (2)
+[2016-02-07 20:16:36] Error: DbError  SQLSTATE[HY000] [2005] Unknown MySQL server host 'DB_HOST' (2)
+[2016-02-07 21:40:09] Error: Autoload errore, Classe dsfd non esiste!
+[2016-02-07 21:46:20] Error: Autoload errore, Classe dsfd non esiste!
+[2016-02-07 21:46:29] Error: Autoload errore, Classe dsfd non esiste!
+[2016-02-07 21:51:34] Error: Autoload errore, Classe dsfd non esiste!
+[2016-02-07 21:59:57] Error: Autoload errore, Classe c non esiste!
+[2016-02-07 22:01:37] Error: Autoload errore, Classe c non esiste!
+[2016-02-07 22:01:57] Error: Autoload errore, Classe c non esiste!
+[2016-02-08 09:48:00] Error: Autoload errore, Classe f non esiste!
+[2016-02-08 09:48:29] Error: Autoload errore, Classe f non esiste!
+[2016-02-08 09:48:34] Error: Autoload errore, Classe cdsa non esiste!
+[2016-02-11 22:01:38] Error: Autoload errore, Classe url non esiste!
+[2016-02-11 22:01:42] Error: Autoload errore, Classe url non esiste!
+[2016-02-14 12:56:29] Error: Template render error on  homes not found!
+[2016-02-14 12:57:04] Error: Template render error on  "homes" not found!
+[2016-02-17 19:40:33] Error: DbError not an array in method addRow 
+[2016-02-21 20:12:14] Error: DbError not an array in method addRow 
+[2016-02-21 20:12:16] Error: DbError not an array in method addRow 
+[2016-02-22 16:40:35] Error: DbError _foreign is not an array or is empty
+[2016-02-23 18:48:02] Error: DbError  SQLSTATE[HY000] [1040] Too many connections
+[2016-02-23 18:48:02] Error: DbError  SQLSTATE[08004] [1040] Too many connections
+[2016-02-23 18:48:02] Error: DbError  SQLSTATE[08004] [1040] Too many connections
+[2016-02-23 18:48:02] Error: DbError  SQLSTATE[08004] [1040] Too many connections
+[2016-02-29 20:20:36] Error: Template render error on view not found!
+[2016-02-29 20:21:13] Error: Template render error on view not found!
+[2016-02-29 20:21:52] Error: Template render error on view not found!
+[2016-02-29 20:23:47] Error: Template render error on view not found!
+[2016-02-29 20:24:22] Error: Template render error on view not found!
+[2016-02-29 20:24:52] Error: Template render error on view not found!
+[2016-02-29 20:25:25] Error: Template render error on view not found!
+[2016-02-29 20:25:33] Error: Template render error on view not found!
+[2016-02-29 20:26:35] Error: Template render error on view not found!
+[2016-02-29 20:27:06] Error: Template render error on view not found!
+[2016-02-29 20:27:13] Error: Template render error on view not found!
+[2016-02-29 20:27:16] Error: Template render error on view not found!
+[2016-02-29 20:27:16] Error: Template render error on view not found!
+[2016-02-29 20:27:16] Error: Template render error on view not found!
+[2016-02-29 20:27:27] Error: Template render error on view not found!
+[2016-02-29 20:27:29] Error: Template render error on view not found!
+[2016-02-29 20:27:29] Error: Template render error on view not found!
+[2016-02-29 20:27:30] Error: Template render error on view not found!
+[2016-02-29 20:27:30] Error: Template render error on view not found!
+[2016-02-29 20:27:42] Error: Template render error on view not found!

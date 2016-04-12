@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+
+    <title>Smartcafe - Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    .vertical-offset-100{
+    padding-top:100px;
+	}
+	body{
+    /*background: url('css/bar.jpg');*/
+	background-color: #444;
+	}
+	</style>
+</head>
+<body>
+<div class="container">
+    <div class="row vertical-offset-100">
+    	<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Autenticarsi</h3>
+			 	</div>
+			  	<div class="panel-body">
+			    	<form accept-charset="UTF-8" role="form" method="POST" action="users" >
+
+                    <fieldset>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" placeholder="Username" name="username" type="email">
+
+			    		</div>
+			    		<div class="form-group">
+			    			<input class="form-control" placeholder="Password" name="password" type="password" value="">
+
+			    		</div>
+			    	</fieldset>
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
+
+			      	</form>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?php
+/**Routes array
+  *Here it's possible to set personal routes in an array.
+  *for example "route url" => array ( "controller name" => "controller function or view") .
+  *For set directly the view, write "view:example" .
+**/
+$routes = array(
+  'GET:/index.php' => array(
+    'MyController' => 'homePage'
+  ),
+  'GET:/' => array(
+    'MyController' => 'homePage3'
+  ),
+  'GET:/home' => array(
+    'MyController' => 'homePage'
+  ),
+  'POST:/users/{id}' => array(
+    'MyController' => 'homePage'
+  ),
+  'GET:/add' => array(
+    'MyController' => 'homePage2'
+  ),
+  'GET:/cerca' => array('MyController' => 'cerca'),
+);
