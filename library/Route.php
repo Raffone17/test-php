@@ -27,19 +27,21 @@ class Route
         // check if there is a '?' simbol in the url, and delete everything come after.
         if (strstr($this->url, '?')) $this->url = substr($this->url, 0, strpos($this->url, '?'));
 
+        // initialize routes array and variable array
         $routes = $this->routes;
         $variable_array = array();
 
+
         $url_array = $this->url;
         $url_array = urldecode($url_array);
-        echo $url_array . "<br>";
+        //echo $url_array . "<br>";
 
         $url_array = clean($url_array);
-        echo $url_array;
+        //echo $url_array;
 
       //  $url_array= substr($url_array, 0, strpos($url_array, "?"));
 
-        //
+        // check if there is public in the url, and delete everything before. For development enviroment
         $url_array = explode('/', $url_array);
         if (in_array('public', $url_array)) {
             while ($url_array[0] !== 'public') {
@@ -134,14 +136,33 @@ class Route
         $controller_name='home';
         $model = 'User';
       }*/
+
+      $request = new Request;
+      switch ($method){
+          case 'POST:':
+          $variable_array = $request->post();
+          break;
+          case 'GET:':
+          $variable_array = $request->get();
+          break;
+          case 'PUT:':
+          $variable_array = $request->put();
+          break;
+          case 'DELETE:':
+          echo "Non ne ho idea";
+          break;
+      }
+
+      /*
       if ($method == 'POST:'){
         $variable_array = $_POST;
         print_r($variable_array);
       }elseif ($method == 'GET:') {
         $variable_array = $_GET;
-        print_r($variable_array);
+        //print_r($variable_array);
       }
-
+      */
+      print_r($variable_array);
       $dispatch = new $controller($variable_array, $controller_action);
 
         self::$counturl = $counturl;

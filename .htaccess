@@ -2,7 +2,7 @@
 Options +FollowSymLinks
 <IfModule mod_rewrite.c>
     RewriteEngine On
-	RewriteBase /Myframework2/
+	#RewriteBase /Myframework2/
 
 	RewriteCond %{REQUEST_URI} !/public/
 	RewriteRule (.*) public/index.php/$1 [R=301,L]
