@@ -1,8 +1,12 @@
 <?php
-/**SQLQuery class
-  *A simply class for comunicate with the database, using the PDO queries.
-  *The uses of prepare improve the securty.
-**/
+ /**
+  * SQLQuery class
+  * A simply class for comunicate with the database, using the PDO queries.
+  * The uses of prepare improve the securty.
+  * @version v0.1.0
+  *
+  * @author Raffone
+  */
 
 class SQLQuery
 {

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Template" namespace="" name="Template" abstract="false" final="false" start="11" end="84">
+  <file path="/Applications/XAMPP/xamppfiles/htdocs/test-php/library" file="Template.php" realpath="/Applications/XAMPP/xamppfiles/htdocs/test-php/library/Template.php" size="2573" time="2016-04-28T16:10:34+02:00" unixtime="1461852634" sha1="8ddc6cfc1e56c19c720d939b03a4122d9de94492" relative="library/Template.php"/>
+  <docblock>
+    <description compact="Class Template">for rendering the web pages</description>
+    <version value="v0.1.0"/>
+    <author value="Raffone"/>
+  </docblock>
+  <member name="variables" type="array" default="" visibility="protected" line="13"/>
+  <member name="_view" visibility="protected" line="14"/>
+  <member name="_action" visibility="protected" line="15"/>
+  <constructor name="__construct" start="25" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Contruct of the class The construct set the view and variable that will be used for render the required page. The variables is an array."/>
+      <param description="of the view, in the application/views folder" variable="$view" type="object">
+        <type full="Name" namespace="" name="Name"/>
+      </param>
+      <param variable="$variables" type="array"/>
+    </docblock>
+    <parameter name="view" byreference="false" type="{unknown}"/>
+    <parameter name="variables" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="set" start="32" end="35" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Set Variables"/>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="render" start="43" end="63" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Render The render method search the view and if found include that, and the same time set the name for the variables array that can be used in the views."/>
+      <param description="of the array will send to the view" variable="$name" type="object">
+        <type full="Name" namespace="" name="Name"/>
+      </param>
+    </docblock>
+    <parameter name="name" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="extendsLayout" start="68" end="83" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Static Method that add the functionality of extends Layouts in the view."/>
+      <param description="of the layout to extend" variable="$_layout" type="object">
+        <type full="name" namespace="" name="name"/>
+      </param>
+    </docblock>
+    <parameter name="_layout" byreference="false" type="{unknown}"/>
+  </method>
+</class>

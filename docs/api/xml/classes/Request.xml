@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Request" namespace="" name="Request" abstract="false" final="false" start="12" end="66">
+  <file path="/Applications/XAMPP/xamppfiles/htdocs/test-php/library" file="Request.php" realpath="/Applications/XAMPP/xamppfiles/htdocs/test-php/library/Request.php" size="939" time="2016-04-28T16:10:34+02:00" unixtime="1461852634" sha1="2b9d91ab4e15e30b8be1ad6e007730333155fbb5" relative="library/Request.php"/>
+  <docblock>
+    <description compact="Reqeust class, used for read all get, post and put parameters."/>
+    <version value="v0.1.0"/>
+    <author value="Raffone"/>
+  </docblock>
+  <member name="get" visibility="protected" line="14"/>
+  <member name="post" visibility="protected" line="15"/>
+  <member name="put" visibility="protected" line="16"/>
+  <constructor name="__construct" start="23" end="29" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Construct method that read all get,post and put parameters, and set them in protected variables."/>
+    </docblock>
+  </constructor>
+  <method name="get" start="35" end="40" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return description="array" type="object">
+        <type full="GET" namespace="" name="GET"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="post" start="45" end="47" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return description="array" type="object">
+        <type full="POST" namespace="" name="POST"/>
+      </return>
+    </docblock>
+  </method>
+  <method name="input" start="53" end="55" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <todo value="return GET,POST and PUT array"/>
+    </docblock>
+  </method>
+  <method name="put" start="60" end="62" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description/>
+      <return description="array" type="object">
+        <type full="PUT" namespace="" name="PUT"/>
+      </return>
+    </docblock>
+  </method>
+</class>

@@ -1,13 +1,13 @@
 <?php
-/**
-  *Example of a peronal controller.
-  *It's possible to set the model with $this->model = new "Model name" ,
-  *the best way, if you want to use variables from the query in your view.
-  *Or simply create a new class, $model = new "Model name" .
-  *With the return of funcions in your controller you can return an array or variable
-  *to the view used. To set the view use $this->_view = "view name" .
+  /**
+  * Example of a controller.
+  * It's possible to use a model with $this->model = new "Model name" ,
+  * the best way, if you want to use variables from the query in your view.
+  * Or simply create a new class, $model = new "Model name" .
+  * With the return of funcions in your controller you can return an array or variable
+  * to the view used. To set the view use $this->_view = "view name" .
   *
-**/
+  */
 class MyController extends Controller
 {
     protected function homePage()

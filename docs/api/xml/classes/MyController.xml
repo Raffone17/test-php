@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="MyController" namespace="" name="MyController" abstract="false" final="false" start="11" end="53">
+  <file path="/Applications/XAMPP/xamppfiles/htdocs/test-php/application/controllers" file="MyController.php" realpath="/Applications/XAMPP/xamppfiles/htdocs/test-php/application/controllers/MyController.php" size="1406" time="2016-04-28T12:28:34+02:00" unixtime="1461839314" sha1="71920b22a6a829b2dfe93adbca15bd222abf98c1" relative="application/controllers/MyController.php"/>
+  <docblock>
+    <description compact="Example of a controller.">It's possible to use a model with $this-&gt;model = new "Model name" ,
+the best way, if you want to use variables from the query in your view.
+Or simply create a new class, $model = new "Model name" .
+With the return of funcions in your controller you can return an array or variable
+to the view used. To set the view use $this-&gt;_view = "view name" .</description>
+  </docblock>
+  <extends full="Controller" namespace="" name="Controller"/>
+  <method name="homePage" start="13" end="23" abstract="false" final="false" static="false" visibility="protected"/>
+  <method name="homePage2" start="24" end="35" abstract="false" final="false" static="false" visibility="protected">
+    <inline>
+      <comment value="$this-&gt;_model = new User;" line="27"/>
+      <comment value="$array = array('email'=&gt;'ornorinco@email.com','nome'=&gt;'Carlo Rossi','citta'=&gt;'Torino');" line="28"/>
+      <comment value="$result = $this-&gt;_model-&gt;addRow($prova);" line="30"/>
+    </inline>
+  </method>
+  <method name="homePage3" start="37" end="46" abstract="false" final="false" static="false" visibility="protected">
+    <inline>
+      <comment value="$result2 = json_encode($result);" line="41"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="echo &quot;&lt;br&gt;json_encode:&quot;.$result2;" line="42"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="echo &quot;&lt;br&gt;json_dencode:&quot;.print_r(json_decode($result2));" line="43"/>
+    </inline>
+  </method>
+  <method name="cerca" start="47" end="51" abstract="false" final="false" static="false" visibility="protected"/>
+  <parent full="Controller" namespace="" name="Controller">
+    <member name="_model" visibility="protected" line="14"/>
+    <member name="_controller_action" visibility="protected" line="15"/>
+    <member name="_variables_to_view" visibility="protected" line="16"/>
+    <member name="_variables" visibility="protected" line="17"/>
+    <member name="_template" visibility="protected" line="18"/>
+    <member name="_view" visibility="protected" line="19"/>
+    <constructor name="__construct" start="31" end="42" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="In the costruct method the class set the name of method that will use the child class for return the view. Next set variables, for optional use in the child classes. Then check if the method name passed does really exist in the controller, if not set the view to &quot;error&quot; ."/>
+        <param description="of variables" variable="$variable_array" type="array"/>
+        <param description="of the method of the controller will use" variable="$controller_action" type="object">
+          <type full="name" namespace="" name="name"/>
+        </param>
+      </docblock>
+      <parameter name="variable_array" byreference="false" type="{unknown}"/>
+      <parameter name="controller_action" byreference="false" type="{unknown}"/>
+    </constructor>
+    <method name="set" start="44" end="47" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="name" byreference="false" type="{unknown}"/>
+      <parameter name="value" byreference="false" type="{unknown}"/>
+    </method>
+    <destructor name="__destruct" start="57" end="72" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="In the detruct function, start the rendering of the view, with a call to the template class, used for render the pages of the application or website.">The method check if we used a model class, or if the _model is not empty ,
+for select the name of the array that will return to te view.
+Then, create a new class Template and start the rendering.</description>
+      </docblock>
+    </destructor>
+  </parent>
+</class>

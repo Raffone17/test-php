@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/Applications/XAMPP/xamppfiles/htdocs/test-php/application/views" file="home2.php" realpath="/Applications/XAMPP/xamppfiles/htdocs/test-php/application/views/home2.php" size="1543" time="2016-04-13T09:26:25+02:00" unixtime="1460532385" sha1="25a73b2c82b58cdc93357c2bbe8f2cc974a41fe8" relative="application/views/home2.php"/>
+  <line no="1">
+    <token name="T_INLINE_HTML">&lt;!DOCTYPE html&gt;</token>
+  </line>
+  <line no="2">
+    <token name="T_INLINE_HTML">&lt;html lang="en"&gt;</token>
+  </line>
+  <line no="3">
+    <token name="T_INLINE_HTML">&lt;head&gt;</token>
+  </line>
+  <line no="4">
+    <token name="T_INLINE_HTML">    &lt;meta charset="utf-8"&gt;</token>
+  </line>
+  <line no="5">
+    <token name="T_INLINE_HTML">    &lt;meta name="robots" content="noindex"&gt;</token>
+  </line>
+  <line no="6"/>
+  <line no="7">
+    <token name="T_INLINE_HTML">    &lt;title&gt;Smartcafe - Login&lt;/title&gt;</token>
+  </line>
+  <line no="8">
+    <token name="T_INLINE_HTML">        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</token>
+  </line>
+  <line no="9">
+    <token name="T_INLINE_HTML">    &lt;link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"&gt;</token>
+  </line>
+  <line no="10">
+    <token name="T_INLINE_HTML">    &lt;script src="bower_components/jquery/dist/jquery.min.js"&gt;&lt;/script&gt;</token>
+  </line>
+  <line no="11">
+    <token name="T_INLINE_HTML">    &lt;script src="bower_components/bootstrap/dist/js/bootstrap.min.js"&gt;&lt;/script&gt;</token>
+  </line>
+  <line no="12">
+    <token name="T_INLINE_HTML">    &lt;style type="text/css"&gt;</token>
+  </line>
+  <line no="13">
+    <token name="T_INLINE_HTML">    .vertical-offset-100{</token>
+  </line>
+  <line no="14">
+    <token name="T_INLINE_HTML">    padding-top:100px;</token>
+  </line>
+  <line no="15">
+    <token name="T_INLINE_HTML">	}</token>
+  </line>
+  <line no="16">
+    <token name="T_INLINE_HTML">	body{</token>
+  </line>
+  <line no="17">
+    <token name="T_INLINE_HTML">    /*background: url('css/bar.jpg');*/</token>
+  </line>
+  <line no="18">
+    <token name="T_INLINE_HTML">	background-color: #444;</token>
+  </line>
+  <line no="19">
+    <token name="T_INLINE_HTML">	}</token>
+  </line>
+  <line no="20">
+    <token name="T_INLINE_HTML">	&lt;/style&gt;</token>
+  </line>
+  <line no="21">
+    <token name="T_INLINE_HTML">&lt;/head&gt;</token>
+  </line>
+  <line no="22">
+    <token name="T_INLINE_HTML">&lt;body&gt;</token>
+  </line>
+  <line no="23">
+    <token name="T_INLINE_HTML">&lt;div class="container"&gt;</token>
+  </line>
+  <line no="24">
+    <token name="T_INLINE_HTML">    &lt;div class="row vertical-offset-100"&gt;</token>
+  </line>
+  <line no="25">
+    <token name="T_INLINE_HTML">    	&lt;div class="col-md-4 col-md-offset-4"&gt;</token>
+  </line>
+  <line no="26">
+    <token name="T_INLINE_HTML">    		&lt;div class="panel panel-default"&gt;</token>
+  </line>
+  <line no="27">
+    <token name="T_INLINE_HTML">			  	&lt;div class="panel-heading"&gt;</token>
+  </line>
+  <line no="28">
+    <token name="T_INLINE_HTML">			    	&lt;h3 class="panel-title"&gt;Autenticarsi&lt;/h3&gt;</token>
+  </line>
+  <line no="29">
+    <token name="T_INLINE_HTML">			 	&lt;/div&gt;</token>
+  </line>
+  <line no="30">
+    <token name="T_INLINE_HTML">			  	&lt;div class="panel-body"&gt;</token>
+  </line>
+  <line no="31">
+    <token name="T_INLINE_HTML">			    	&lt;form accept-charset="UTF-8" role="form" method="POST" action="users" &gt;</token>
+  </line>
+  <line no="32"/>
+  <line no="33">
+    <token name="T_INLINE_HTML">                    &lt;fieldset&gt;</token>
+  </line>
+  <line no="34">
+    <token name="T_INLINE_HTML">			    	  	&lt;div class="form-group"&gt;</token>
+  </line>
+  <line no="35">
+    <token name="T_INLINE_HTML">			    		    &lt;input class="form-control" placeholder="Username" name="username" type="email"&gt;</token>
+  </line>
+  <line no="36"/>
+  <line no="37">
+    <token name="T_INLINE_HTML">			    		&lt;/div&gt;</token>
+  </line>
+  <line no="38">
+    <token name="T_INLINE_HTML">			    		&lt;div class="form-group"&gt;</token>
+  </line>
+  <line no="39">
+    <token name="T_INLINE_HTML">			    			&lt;input class="form-control" placeholder="Password" name="password" type="password" value=""&gt;</token>
+  </line>
+  <line no="40"/>
+  <line no="41">
+    <token name="T_INLINE_HTML">			    		&lt;/div&gt;</token>
+  </line>
+  <line no="42">
+    <token name="T_INLINE_HTML">			    	&lt;/fieldset&gt;</token>
+  </line>
+  <line no="43">
+    <token name="T_INLINE_HTML">			    		&lt;input class="btn btn-lg btn-success btn-block" type="submit" value="Login"&gt;</token>
+  </line>
+  <line no="44"/>
+  <line no="45">
+    <token name="T_INLINE_HTML">			      	&lt;/form&gt;</token>
+  </line>
+  <line no="46">
+    <token name="T_INLINE_HTML">			    &lt;/div&gt;</token>
+  </line>
+  <line no="47">
+    <token name="T_INLINE_HTML">			&lt;/div&gt;</token>
+  </line>
+  <line no="48">
+    <token name="T_INLINE_HTML">		&lt;/div&gt;</token>
+  </line>
+  <line no="49">
+    <token name="T_INLINE_HTML">	&lt;/div&gt;</token>
+  </line>
+  <line no="50">
+    <token name="T_INLINE_HTML">&lt;/div&gt;</token>
+  </line>
+  <line no="51">
+    <token name="T_INLINE_HTML">&lt;/body&gt;</token>
+  </line>
+  <line no="52">
+    <token name="T_INLINE_HTML">&lt;/html&gt;</token>
+  </line>
+  <line no="53"/>
+</source>

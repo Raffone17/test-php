@@ -1,7 +1,12 @@
 <?php
-/**Class Template
-  *for rendering the web pages
-**/
+ /**
+  * Class Template
+  *
+  * for rendering the web pages
+  * @version v0.1.0
+  *
+  * @author Raffone
+  */
 
 class Template
 {
@@ -9,10 +14,13 @@ class Template
     protected $_view;
     protected $_action;
 
-    /**Contruct of the class
-      *The construct set the view and variable that will be used for render
-      *the required page. The variables is an array.
-    **/
+   /**
+    * Contruct of the class
+    * The construct set the view and variable that will be used for render
+    * the required page. The variables is an array.
+    * @param $view Name of the view, in the application/views folder
+    * @param $variables array
+    */
 
     public function __construct($view, $variables)
     {
@@ -26,10 +34,12 @@ class Template
         $this->variables[$name] = $value;
     }
 
-    /** Render
-     *The render method search the view and if found include that, and the same time
-     *set the name for the variables array that can be used in the views.
-     **/
+    /**
+     * Render
+     * The render method search the view and if found include that, and the same time
+     * set the name for the variables array that can be used in the views.
+     * @param $name Name of the array will send to the view
+     */
     public function render($name)
     {
         if (is_array($this->variables)) {
@@ -51,7 +61,10 @@ class Template
             }
         }
     }
-
+    /**
+    * Static Method that add the functionality of extends Layouts in the view.
+    * @param $_layout name of the layout to extend
+    */
     public static function extendsLayout($_layout)
     {
 

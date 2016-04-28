@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<source xmlns="http://xml.phpdox.net/token">
+  <file xmlns="http://xml.phpdox.net/src" path="/Applications/XAMPP/xamppfiles/htdocs/test-php/application/views" file="home.php" realpath="/Applications/XAMPP/xamppfiles/htdocs/test-php/application/views/home.php" size="1131" time="2016-04-13T09:26:25+02:00" unixtime="1460532385" sha1="43db649dc1bae5c13d669a709a4b3aad1d31cb93" relative="application/views/home.php"/>
+  <line no="1">
+    <token name="T_INLINE_HTML">&lt;!-- Example of a home view, you can use php in here--&gt;</token>
+  </line>
+  <line no="2">
+    <token name="T_INLINE_HTML">&lt;html&gt;</token>
+  </line>
+  <line no="3">
+    <token name="T_INLINE_HTML">	&lt;head&gt;</token>
+  </line>
+  <line no="4"/>
+  <line no="5">
+    <token name="T_INLINE_HTML">		&lt;link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css"&gt;</token>
+  </line>
+  <line no="6">
+    <token name="T_INLINE_HTML">		&lt;link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'&gt;</token>
+  </line>
+  <line no="7">
+    <token name="T_INLINE_HTML">		&lt;link href='https://fonts.googleapis.com/css?family=Kanit' rel='stylesheet' type='text/css'&gt;</token>
+  </line>
+  <line no="8">
+    <token name="T_INLINE_HTML">		&lt;link rel="stylesheet" href=</token>
+    <token name="T_OPEN_TAG">&lt;?php </token>
+    <token name="T_STRING">Route</token>
+    <token name="T_DOUBLE_COLON">::</token>
+    <token name="T_STRING">secure_assest</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">"css/style.css"</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+    <token name="T_CLOSE_TAG">?&gt;</token>
+    <token name="T_INLINE_HTML"> type="text/css"&gt;</token>
+  </line>
+  <line no="9">
+    <token name="T_INLINE_HTML">	&lt;/head&gt;</token>
+  </line>
+  <line no="10">
+    <token name="T_INLINE_HTML">&lt;body&gt;</token>
+  </line>
+  <line no="11">
+    <token name="T_INLINE_HTML">	&lt;div class="framework-container"&gt;</token>
+  </line>
+  <line no="12">
+    <token name="T_INLINE_HTML">		&lt;h1 class="framework-title"&gt; Wellcome to SmallFramework&lt;/h1&gt;</token>
+  </line>
+  <line no="13">
+    <token name="T_INLINE_HTML">		&lt;!-- Example for use variables from the controller if not set the model</token>
+  </line>
+  <line no="14">
+    <token name="T_INLINE_HTML">						</token>
+    <token name="T_OPEN_TAG">&lt;?php </token>
+    <token name="T_COMMENT">// print_r($all);</token>
+    <token name="T_CLOSE_TAG">?&gt;</token>
+  </line>
+  <line no="15">
+    <token name="T_INLINE_HTML">				If set the model are used in the controller, use the table name of the array</token>
+  </line>
+  <line no="16">
+    <token name="T_INLINE_HTML">				for example</token>
+  </line>
+  <line no="17">
+    <token name="T_INLINE_HTML">				</token>
+    <token name="T_OPEN_TAG">&lt;?php </token>
+    <token name="T_COMMENT">//print_r($table_name) </token>
+    <token name="T_CLOSE_TAG">?&gt;</token>
+  </line>
+  <line no="18">
+    <token name="T_INLINE_HTML">	 --&gt;</token>
+  </line>
+  <line no="19">
+    <token name="T_INLINE_HTML">	 &lt;form role="search" method="GET" &gt;</token>
+  </line>
+  <line no="20">
+    <token name="T_INLINE_HTML">	 &lt;div class="form-group" &gt;</token>
+  </line>
+  <line no="21">
+    <token name="T_INLINE_HTML">		 &lt;input type="text" placeholder="Search" name="search"/&gt;</token>
+  </line>
+  <line no="22">
+    <token name="T_INLINE_HTML">	 &lt;/div&gt;</token>
+  </line>
+  <line no="23">
+    <token name="T_INLINE_HTML">	 &lt;input type="submit" velue="submit" name="submit"&gt;</token>
+  </line>
+  <line no="24">
+    <token name="T_INLINE_HTML"> &lt;/form&gt;</token>
+  </line>
+  <line no="25">
+    <token name="T_INLINE_HTML"> </token>
+    <token name="T_OPEN_TAG">&lt;?php</token>
+  </line>
+  <line no="26">
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_IF">if</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_ISSET">isset</token>
+    <token name="T_PHPDOX_OPEN_BRACKET">(</token>
+    <token name="T_VARIABLE">$_GET</token>
+    <token name="T_PHPDOX_OPEN_SQUARE">[</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'search'</token>
+    <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_CLOSE_BRACKET">)</token>
+    <token name="T_PHPDOX_OPEN_CURLY">{</token>
+  </line>
+  <line no="27">
+    <token name="T_WHITESPACE">	 </token>
+    <token name="T_ECHO">echo</token>
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_VARIABLE">$_GET</token>
+    <token name="T_PHPDOX_OPEN_SQUARE">[</token>
+    <token name="T_CONSTANT_ENCAPSED_STRING">'search'</token>
+    <token name="T_PHPDOX_CLOSE_SQUARE">]</token>
+    <token name="T_PHPDOX_SEMICOLON">;</token>
+  </line>
+  <line no="28">
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_PHPDOX_CLOSE_CURLY">}</token>
+  </line>
+  <line no="29">
+    <token name="T_WHITESPACE"> </token>
+    <token name="T_CLOSE_TAG">?&gt;</token>
+  </line>
+  <line no="30"/>
+  <line no="31"/>
+  <line no="32">
+    <token name="T_INLINE_HTML">	 &lt;h1&gt; CIAO!!!&lt;h1&gt;</token>
+  </line>
+  <line no="33">
+    <token name="T_INLINE_HTML">	&lt;/div&gt;</token>
+  </line>
+  <line no="34">
+    <token name="T_INLINE_HTML">&lt;/body&gt;</token>
+  </line>
+  <line no="35">
+    <token name="T_INLINE_HTML">&lt;/html&gt;</token>
+  </line>
+  <line no="36"/>
+</source>

@@ -1,4 +1,11 @@
 <?php
+ /**
+  * Simple log maker class, with methods for insert error logs or warnings.
+  *
+  * @version v0.1.0
+  *
+  * @author Raffone
+  */
 
 class LogMake
 {

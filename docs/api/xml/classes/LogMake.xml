@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="LogMake" namespace="" name="LogMake" abstract="false" final="false" start="10" end="42">
+  <file path="/Applications/XAMPP/xamppfiles/htdocs/test-php/library" file="LogMake.php" realpath="/Applications/XAMPP/xamppfiles/htdocs/test-php/library/LogMake.php" size="805" time="2016-04-28T16:09:19+02:00" unixtime="1461852559" sha1="42aeef5777b050d44caf060c4bb97cc9e634e5b4" relative="library/LogMake.php"/>
+  <docblock>
+    <description compact="Simple log maker class, with methods for insert error logs or warnings."/>
+    <version value="v0.1.0"/>
+    <author value="Raffone"/>
+  </docblock>
+  <member name="file" visibility="protected" line="12"/>
+  <constructor name="__construct" start="15" end="18" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="file" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="logError" start="21" end="30" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="logWarning" start="32" end="41" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+</class>

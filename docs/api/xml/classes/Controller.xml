@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Controller" namespace="" name="Controller" abstract="false" final="false" start="12" end="73">
+  <file path="/Applications/XAMPP/xamppfiles/htdocs/test-php/library" file="Controller.php" realpath="/Applications/XAMPP/xamppfiles/htdocs/test-php/library/Controller.php" size="2411" time="2016-04-28T16:10:34+02:00" unixtime="1461852634" sha1="96a76156d4d96b116b3dcf34584b750c8bfa7709" relative="library/Controller.php"/>
+  <docblock>
+    <description compact="This is the main Controller class.">The use of this class is the comunication between the Template class,
+the routes and the model.
+Use child class those extende Controller class for create your personal controllers.</description>
+    <version value="v0.1.0"/>
+    <author value="Raffone"/>
+  </docblock>
+  <member name="_model" visibility="protected" line="14"/>
+  <member name="_controller_action" visibility="protected" line="15"/>
+  <member name="_variables_to_view" visibility="protected" line="16"/>
+  <member name="_variables" visibility="protected" line="17"/>
+  <member name="_template" visibility="protected" line="18"/>
+  <member name="_view" visibility="protected" line="19"/>
+  <constructor name="__construct" start="31" end="42" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="In the costruct method the class set the name of method that will use the child class for return the view. Next set variables, for optional use in the child classes. Then check if the method name passed does really exist in the controller, if not set the view to &quot;error&quot; ."/>
+      <param description="of variables" variable="$variable_array" type="array"/>
+      <param description="of the method of the controller will use" variable="$controller_action" type="object">
+        <type full="name" namespace="" name="name"/>
+      </param>
+    </docblock>
+    <parameter name="variable_array" byreference="false" type="{unknown}"/>
+    <parameter name="controller_action" byreference="false" type="{unknown}"/>
+  </constructor>
+  <method name="set" start="44" end="47" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="name" byreference="false" type="{unknown}"/>
+    <parameter name="value" byreference="false" type="{unknown}"/>
+  </method>
+  <destructor name="__destruct" start="57" end="72" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="In the detruct function, start the rendering of the view, with a call to the template class, used for render the pages of the application or website.">The method check if we used a model class, or if the _model is not empty ,
+for select the name of the array that will return to te view.
+Then, create a new class Template and start the rendering.</description>
+    </docblock>
+  </destructor>
+</class>

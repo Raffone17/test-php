@@ -1,2 +1,4 @@
 .env
 /.idea
+phpDocumentor.phar
+phpdox-0.8.0.phar

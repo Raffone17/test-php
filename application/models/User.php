@@ -1,10 +1,11 @@
 <?php
-/**Example of a model.
-  *The name of the model should be the singolar and with first capital letter name
-  *of the table that will be used. Remember to extends the principal Model calss.
-  *If need to change table name, use construct method with parent::__contruct();
+ /**
+  * Example of a model.
+  * The name of the model should be the singolar and with first capital letter name
+  * of the table that will be used. Remember to extends the principal Model calss.
+  * If need to change table name, use construct method with parent::__contruct();
   *
-**/
+  */
 Class User extends Model{
 
   function __construct(){
@@ -15,7 +16,8 @@ Class User extends Model{
 
 }
 
-/**Example if tou need to change the table name.
+ /**
+  * Example if need to change the table name.
   *
   *
   *  Class User extends Model{
@@ -24,4 +26,4 @@ Class User extends Model{
   *        $this->_table = "users";
   *      }
   *   }
-**/
+  */

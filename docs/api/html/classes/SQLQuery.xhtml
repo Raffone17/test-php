@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>phpDox - SQLQuery</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.xhtml">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.xhtml">Namespaces</a>
+        </li>
+        <li>
+          <a href="../classes.xhtml">Classes</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.xhtml">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.xhtml">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.xhtml">Classes</a>
+          </li>
+          <li class="separator">SQLQuery</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/library/SQLQuery.php.xhtml#line11">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>\</small>SQLQuery</h1>
+        <h4>SQLQuery class A simply class for comunicate with the database, using the PDO queries.</h4>
+        <p>The uses of prepare improve the securty.</p>
+        <ul>
+          <li>Author: Raffone</li>
+        </ul>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class SQLQuery
+            {<br/><ul class="none"><li>// members</li><li>protected  <a href="#members">$_dbHandle</a>;
+                    </li><li>protected array <a href="#members">$_joins</a> =
+                        ;
+                    </li><li>protected  <a href="#members">$_result</a>;
+                    </li></ul><ul class="none"><li>// methods</li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/connect.xhtml">connect</a>()
+                    </li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/disconnect.xhtml">disconnect</a>()
+                    </li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/selectAll.xhtml">selectAll</a>()
+                    </li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/selectWhere.xhtml">selectWhere</a>()
+                    </li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/addRow.xhtml">addRow</a>()
+                    </li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/query.xhtml">query</a>()
+                    </li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/foreign.xhtml">foreign</a>()
+                    </li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/getNumRows.xhtml">getNumRows</a>()
+                    </li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/freeResult.xhtml">freeResult</a>()
+                    </li><li>public void <a title="SQLQuery" href="../classes/SQLQuery/getError.xhtml">getError</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="_dbHandle">
+              <strong>$_dbHandle</strong>
+            </li>
+            <li id="_joins">
+              <strong>$_joins</strong>
+            </li>
+            <li id="_result">
+              <strong>$_result</strong>
+            </li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>public</h4>
+          <ul>
+            <li id="addRow"><a title="SQLQuery" href="../classes/SQLQuery/addRow.xhtml">addRow()</a>
+                — Insert in to the table the specific array variables</li>
+            <li id="connect"><a title="SQLQuery" href="../classes/SQLQuery/connect.xhtml">connect()</a>
+                — Connects to database</li>
+            <li id="disconnect"><a title="SQLQuery" href="../classes/SQLQuery/disconnect.xhtml">disconnect()</a>
+                — Disconnects from database</li>
+            <li id="foreign">
+              <a title="SQLQuery" href="../classes/SQLQuery/foreign.xhtml">foreign()</a>
+            </li>
+            <li id="freeResult"><a title="SQLQuery" href="../classes/SQLQuery/freeResult.xhtml">freeResult()</a>
+                — Free resources allocated by a query</li>
+            <li id="getError"><a title="SQLQuery" href="../classes/SQLQuery/getError.xhtml">getError()</a>
+                — Get error string</li>
+            <li id="getNumRows"><a title="SQLQuery" href="../classes/SQLQuery/getNumRows.xhtml">getNumRows()</a>
+                — Get number of rows</li>
+            <li id="query"><a title="SQLQuery" href="../classes/SQLQuery/query.xhtml">query()</a>
+                — Custom SQL Query</li>
+            <li id="selectAll"><a title="SQLQuery" href="../classes/SQLQuery/selectAll.xhtml">selectAll()</a>
+                — Select all from a table</li>
+            <li id="selectWhere"><a title="SQLQuery" href="../classes/SQLQuery/selectWhere.xhtml">selectWhere()</a>
+                — Select a specific row from the table, using the id</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.8.0 - Copyright (C) 2010 - 2016 by Arne Blankerts</span>
+    </footer>
+  </body>
+</html>

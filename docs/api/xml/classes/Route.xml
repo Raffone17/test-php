@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="Route" namespace="" name="Route" abstract="false" final="false" start="12" end="200">
+  <file path="/Applications/XAMPP/xamppfiles/htdocs/test-php/library" file="Route.php" realpath="/Applications/XAMPP/xamppfiles/htdocs/test-php/library/Route.php" size="5671" time="2016-04-28T16:10:34+02:00" unixtime="1461852634" sha1="55a58d64dcb92b8bd02f928bebe24c037a6f6748" relative="library/Route.php"/>
+  <docblock>
+    <description compact="Route class The principal function of this class is elaborate the routing of the appication."/>
+    <version value="v0.1.0"/>
+    <author value="Raffone"/>
+  </docblock>
+  <member name="url" visibility="private" line="14"/>
+  <member name="routes" visibility="private" line="15"/>
+  <member name="counturl" visibility="public" line="16"/>
+  <constructor name="__construct" start="18" end="25" abstract="false" final="false" static="false" visibility="public">
+    <parameter name="url" byreference="false" type="{unknown}"/>
+    <parameter name="routes" byreference="false" type="{unknown}"/>
+    <inline>
+      <comment value="$this-&gt;url=$_SERVER['REQUEST_URI'];" line="23"/>
+    </inline>
+  </constructor>
+  <method name="urlRouting" start="27" end="181" abstract="false" final="false" static="false" visibility="public">
+    <docblock>
+      <description compact="Routing method, used for check the url and set the controller and there methods from the routes array."/>
+    </docblock>
+    <inline>
+      <comment value="check if there is a '?' simbol in the url, and delete everything come after." line="32"/>
+      <comment value="initialize routes array and variable array" line="35"/>
+      <comment value="echo $url_array . &quot;&lt;br&gt;&quot;;" line="42"/>
+      <comment value="echo $url_array;" line="45"/>
+      <comment value="$url_array= substr($url_array, 0, strpos($url_array, &quot;?&quot;));" line="47"/>
+      <comment value="check if there is public in the url, and delete everything before. For development enviroment" line="49"/>
+      <comment value="$controller = array_shift($url_array);" line="64"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$action = array_shift($url_array);" line="65"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$query_string = array_shift($url_array);" line="66"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$model = rtrim($controller, 's');" line="67"/>
+      <comment value="foreach ($routes as $pattern =&gt; $view) {" line="69"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="if($pattern === $controller ){" line="70"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$controller_name = $view;" line="71"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="72"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="73"/>
+      <comment value="if($controller==='indexphp'||$controller===''){" line="146"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$controller_name='home';" line="147"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$model = 'User';" line="148"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="149"/>
+      <comment value="if ($method == 'POST:'){" line="167"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$variable_array = $_POST;" line="168"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="print_r($variable_array);" line="169"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}elseif ($method == 'GET:') {" line="170"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="$variable_array = $_GET;" line="171"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="print_r($variable_array);" line="172"/>
+      <comment xmlns="http://xml.phpdox.net/src" value="}" line="173"/>
+    </inline>
+  </method>
+  <method name="secure_assest" start="183" end="193" abstract="false" final="false" static="true" visibility="public">
+    <docblock>
+      <description compact="Securu assets, fuction for prevent error of loading css and public files in views."/>
+    </docblock>
+    <parameter name="text" byreference="false" type="{unknown}"/>
+  </method>
+  <method name="secure_route" start="194" end="199" abstract="false" final="false" static="true" visibility="public">
+    <parameter name="route" byreference="false" type="{unknown}"/>
+  </method>
+</class>

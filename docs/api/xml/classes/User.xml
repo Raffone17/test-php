@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class xmlns="http://xml.phpdox.net/src" full="User" namespace="" name="User" abstract="false" final="false" start="9" end="17">
+  <file path="/Applications/XAMPP/xamppfiles/htdocs/test-php/application/models" file="User.php" realpath="/Applications/XAMPP/xamppfiles/htdocs/test-php/application/models/User.php" size="662" time="2016-04-28T12:27:05+02:00" unixtime="1461839225" sha1="ce87852cb246d4e94676d7ecd344ee9e654cc253" relative="application/models/User.php"/>
+  <docblock>
+    <description compact="Example of a model.">The name of the model should be the singolar and with first capital letter name
+of the table that will be used. Remember to extends the principal Model calss.
+If need to change table name, use construct method with parent::__contruct();</description>
+  </docblock>
+  <extends full="Model" namespace="" name="Model"/>
+  <constructor name="__construct" start="11" end="15" abstract="false" final="false" static="false" visibility="public"/>
+  <parent full="Model" namespace="" name="Model">
+    <extends full="SQLQuery" namespace="" name="SQLQuery"/>
+    <member name="_model" visibility="protected" line="14"/>
+    <member name="_table" visibility="protected" line="15"/>
+    <constructor name="__construct" start="22" end="27" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Construct Set the connection with the database using SQLQuery class methods, and Set the table name."/>
+      </docblock>
+    </constructor>
+    <destructor name="__destruct" start="32" end="34" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Descturct Disconnect from the database."/>
+      </docblock>
+    </destructor>
+  </parent>
+  <parent full="SQLQuery" namespace="" name="SQLQuery">
+    <member name="_dbHandle" visibility="protected" line="13"/>
+    <member name="_joins" type="array" default="" visibility="protected" line="14"/>
+    <member name="_result" visibility="protected" line="15"/>
+    <method name="connect" start="18" end="31" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Connects to database"/>
+      </docblock>
+      <parameter name="address" byreference="false" type="{unknown}"/>
+      <parameter name="dbname" byreference="false" type="{unknown}"/>
+      <parameter name="account" byreference="false" type="{unknown}"/>
+      <parameter name="pwd" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="disconnect" start="34" end="48" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Disconnects from database"/>
+      </docblock>
+    </method>
+    <method name="selectAll" start="50" end="64" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Select all from a table"/>
+      </docblock>
+    </method>
+    <method name="selectWhere" start="66" end="85" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Select a specific row from the table, using the id"/>
+      </docblock>
+      <parameter name="id" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="addRow" start="87" end="132" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Insert in to the table the specific array variables"/>
+      </docblock>
+      <parameter name="variables" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="query" start="135" end="150" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Custom SQL Query"/>
+      </docblock>
+      <parameter name="query" byreference="false" type="{unknown}"/>
+      <parameter name="singleResult" byreference="false" type="integer" default="0"/>
+    </method>
+    <method name="foreign" start="152" end="167" abstract="false" final="false" static="false" visibility="public">
+      <parameter name="_foreign" byreference="false" type="{unknown}"/>
+    </method>
+    <method name="getNumRows" start="170" end="173" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get number of rows"/>
+      </docblock>
+    </method>
+    <method name="freeResult" start="176" end="179" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Free resources allocated by a query"/>
+      </docblock>
+    </method>
+    <method name="getError" start="182" end="185" abstract="false" final="false" static="false" visibility="public">
+      <docblock>
+        <description compact="Get error string"/>
+      </docblock>
+    </method>
+  </parent>
+</class>

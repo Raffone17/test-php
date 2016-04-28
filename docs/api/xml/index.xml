@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://xml.phpdox.net/src" basedir="/Applications/XAMPP/xamppfiles/htdocs/test-php">
+  <namespace name="">
+    <class name="MyController" src="application/controllers/MyController.php" description="Example of a controller." xml="classes/MyController.xml"/>
+    <class name="User" src="application/models/User.php" description="Example of a model." xml="classes/User.xml"/>
+    
+    
+    
+    
+    
+    
+    
+  <class name="Controller" src="library/Controller.php" description="This is the main Controller class." xml="classes/Controller.xml"/><class name="LogMake" src="library/LogMake.php" description="Simple log maker class, with methods for insert error logs or warnings." xml="classes/LogMake.xml"/><class name="Model" src="library/Model.php" description="Model class This class extends the SQLQuery, so basically the main function is comunicate with the database. All models need to extend this class for use the methods for comunicate with the database. For a proper use the model must be named with the singolar and CamelCased name of the table." xml="classes/Model.xml"/><class name="Request" src="library/Request.php" description="Reqeust class, used for read all get, post and put parameters." xml="classes/Request.xml"/><class name="Route" src="library/Route.php" description="Route class The principal function of this class is elaborate the routing of the appication." xml="classes/Route.xml"/><class name="SQLQuery" src="library/SQLQuery.php" description="SQLQuery class A simply class for comunicate with the database, using the PDO queries." xml="classes/SQLQuery.xml"/><class name="Template" src="library/Template.php" description="Class Template" xml="classes/Template.xml"/></namespace>
+</index>

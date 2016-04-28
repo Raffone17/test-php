@@ -1,8 +1,13 @@
 <?php
-/**Route class
-  *The principal function of this class is elaborate the routing of the appication.
+ /**
+  * Route class
+  * The principal function of this class is elaborate the routing of the appication.
   *
-**/
+  * @version v0.1.0
+  *
+  * @author Raffone
+  */
+
 
 class Route
 {
@@ -126,11 +131,17 @@ class Route
       }
         if ($same == 0){
           $method = 'GET:';
+          echo "No method";
         }
 
         if (empty($controller_action)) {
             $controller_action = 'error';
             $controller = 'Controller';
+        }
+        if( $controller == 'SetView' ){
+
+          $controller_action = 'SetView:'.$controller_action;
+          $controller = 'Controller';
         }
       /*if($controller==='indexphp'||$controller===''){
         $controller_name='home';

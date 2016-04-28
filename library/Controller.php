@@ -1,11 +1,14 @@
 <?php
-/**
-  *This is the principal Controller class.
-  *The principal use of this class is the comunication between the Template class,
-  *the routes and the model, using personal child class.
+  /**
+  * This is the main Controller class.
+  * The use of this class is the comunication between the Template class,
+  * the routes and the model.
+  * Use child class those extende Controller class for create your personal controllers.
   *
+  * @version v0.1.0
   *
-**/
+  * @author Raffone
+  */
 class Controller
 {
     protected $_model;
@@ -15,11 +18,15 @@ class Controller
     protected $_template;
     protected $_view;
 
-    /**In the costruct method the class set the name of method that will use
-      *the child class for return the view. Next set variables, for optional use
-      *in the child classes. Then check if the method name passed does really exist
-      *in the controller, if not set the view to "error" .
-    **/
+    /**
+    * In the costruct method the class set the name of method that will use
+    * the child class for return the view. Next set variables, for optional use
+    * in the child classes. Then check if the method name passed does really exist
+    * in the controller, if not set the view to "error" .
+    *
+    * @param $variable_array array of variables
+    * @param $controller_action name of the method of the controller will use
+    */
 
     public function __construct($variable_array, $controller_action)
     {
@@ -27,6 +34,8 @@ class Controller
         $this->variables = $variable_array;
         if (method_exists(get_class($this), $controller_action)) {
             $this->_variables_to_view = $this->$controller_action();
+        }elseif (substr_count($controller_action, 'SetView:') > 0){
+            $this->_view = str_replace("SetView:","",$controller_action);
         } else {
             $this->_view = 'error';
         }
@@ -37,12 +46,13 @@ class Controller
         $this->_template->set($name, $value);
     }
 
-    /**In the detruct function, start the rendering of the view, with a call to
-      *the template class, used for visualize the pages of the application or website.
-      *The method check if we used a model class, or if the _model is not empty ,
-      *for select the name of the array that will return to te view.
-      *Then, create a new class Template and start the rendering.
-    **/
+    /**
+    * In the detruct function, start the rendering of the view, with a call to
+    * the template class, used for render the pages of the application or website.
+    * The method check if we used a model class, or if the _model is not empty ,
+    * for select the name of the array that will return to te view.
+    * Then, create a new class Template and start the rendering.
+    */
 
     public function __destruct()
     {
@@ -61,6 +71,3 @@ class Controller
         $this->_template->render($name);
     }
 }
-/**
-  *
-**/

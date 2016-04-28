@@ -1,9 +1,10 @@
 <?php
 
-/** Configuration Variables
-  * The variables are loaded form a hidden file, called .env, where are all the
-  * configuration.
- **/
+/**
+* Configuration Variables
+* The variables are loaded form a hidden file, called .env, where are set all the
+* configuration.
+*/
 
 $configs = parse_ini_file( ROOT . DS . '.env');
 
