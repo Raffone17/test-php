@@ -24,10 +24,10 @@ class MyController extends Controller
     protected function homePage2()
     {
 
-      //$this->_model = new User;
-      //$array = array('email'=>'ornorinco@email.com','nome'=>'Carlo Rossi','citta'=>'Torino');
+      $this->_model = new User;
+      $array = array('email'=>'ornorinco@email.com','password'=>'Carlo Rossi','username' => 'Ciccio');
       $result = 'prova';
-      //$result = $this->_model->addRow($prova);
+      $result = $this->_model->addRow($array);
       $this->_view = "home2";
       echo $result;
       return $result;

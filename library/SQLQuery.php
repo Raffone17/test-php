@@ -12,7 +12,9 @@ class SQLQuery
 {
     protected $_dbHandle;
     protected $_joins = array();
+    protected $_bindValues = array();
     protected $_result;
+    protected $_query = '';
 
     /** Connects to database **/
     public function connect($address, $dbname, $account, $pwd)
@@ -82,6 +84,81 @@ class SQLQuery
 
             return 1;
         }
+    }
+    public function execute()
+    {
+      try {
+          $stmt = $this->_dbHandle->prepare($this->_query);
+
+          if(isset($this->_bindValues) && is_array($this->_bindValues)){
+            $i = 1;
+            foreach ($variables as $key => $value) {
+                $stmt->bindValue($i, $value);
+                ++$i;
+            }
+
+          }
+
+          $stmt->execute();
+
+      //echo print_r($stmt->errorInfo());
+
+      return $stmt->fetchAll(PDO::FETCH_ASSOC);
+      } catch (PDOException $ex) {
+          global $log;
+          $error = 'DbError '.$e->getMessage();
+          $log->logError($error);
+
+          return 1;
+      }
+
+    }
+    public function select($variables = '*')
+    {
+      $this->_query .= 'SELECT ';
+
+      if(is_array($variables)){
+        foreach($variables as $key => $variable ){
+          if(is_int($key)){
+            $this->_query .= $variable.' ';
+          }else{
+            $this->_query .= $variable.' AS '.$key.' ';
+          }
+        }
+      }elseif($variables == 'all'){
+        $this->_query .= '* ';
+      }else{
+        $this->_query .= $variables.' ';
+      }
+
+      return $this;
+
+    }
+    public function where($variables)
+    {
+      $first = true;
+      $this->_query .= 'WHERE ';
+
+      if(is_array($variables)){
+        foreach($variables as $key => $variable ){
+          if($first){
+            $this->_query .= $key.'= ? ';
+            $first = false;
+          }else{
+            $this->_query .= 'AND '.$key.'= ? ';
+          }
+          array_push($this->_bindValues,$variable);
+        }
+      }
+
+      return $this;
+
+    }
+    public function addOr()
+    {
+      $this->_query .= 'OR ';
+
+      return $this;
     }
     /**  Insert in to the table the specific array variables**/
     public function addRow($variables)
