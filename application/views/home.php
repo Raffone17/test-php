@@ -23,9 +23,19 @@
 	 <input type="submit" velue="submit" name="submit">
  </form>
  <?php
- if(isset($_GET['search'])){
+ /*if(isset($_GET['search'])){
 	 echo $_GET['search'];
- }
+ }*/
+ echo $users[7]['email'];
+ debug($users);
+ //debug($get);
+ //debug($_SERVER);
+ //debug($_SESSION);
+ //debug($_ENV);
+ //debug($_COOKIE);
+ //debug(get_defined_vars());
+
+
  ?>
 
 

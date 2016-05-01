@@ -1,9 +1,9 @@
-<?php  Template::extendsLayout('app'); ?>
-<?php  function content(){ ?>
+
+<?php  $this->contentStart("content")?>
 
 <h1> BENVENUTI </h1>
 <a href="home">Cliccami</a>
-<?php //print_r($all); ?>
+<?php $a=102;debug(get_defined_vars()); ?>
 <?php
 /*$included_files = get_included_files();
 echo "test";
@@ -12,12 +12,13 @@ foreach ($included_files as $filename) {
 }*/
 ?>
 
-<?php } ?>
-
-<?php function menu(){ ?>
+<?php $this->contentStop()?>
+<?php $this->contentStart("menu") ?>
   <li><a href="#">Action</a></li>
   <li><a href="#">Another action</a></li>
   <li><a href="#">Something else here</a></li>
   <li role="separator" class="divider"></li>
   <li><a href="#">Separated link</a></li>
-<?php } ?>
+<?php $this->contentStop() ?>
+
+<?php  $this->extendsLayout('app'); ?>

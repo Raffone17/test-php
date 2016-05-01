@@ -1,4 +1,7 @@
 <?php
+/**
+ *  MODEL
+ */
  /**
   * Model class
   * This class extends the SQLQuery, so basically the main function is comunicate

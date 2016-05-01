@@ -50,7 +50,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
             <ul class="dropdown-menu">
-            <?php menu(); ?>
+            <?php $this->content("menu"); ?>
             </ul>
           </li>
         </ul>
@@ -60,8 +60,8 @@
 
     <div class="container">
 
-    <?php content(); ?>
-
+    <?php $this->content("content"); ?>
+    <?php //debug(get_defined_vars());?>
     <h2>CIAO CIAO</h2>
 
     </div><!-- /.container -->

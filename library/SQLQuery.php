@@ -1,4 +1,7 @@
 <?php
+/**
+ *  SQLQUERY
+ */
  /**
   * SQLQuery class
   * A simply class for comunicate with the database, using the PDO queries.
@@ -89,10 +92,10 @@ class SQLQuery
     {
       try {
           $stmt = $this->_dbHandle->prepare($this->_query);
-
-          if(isset($this->_bindValues) && is_array($this->_bindValues)){
+          debug($this->_query);
+          if(isset($this->_bindValues) && is_array($this->_bindValues) && !empty($this->_bindValues)){
             $i = 1;
-            foreach ($variables as $key => $value) {
+            foreach ($this->_bindValues as $key => $value) {
                 $stmt->bindValue($i, $value);
                 ++$i;
             }
@@ -111,52 +114,112 @@ class SQLQuery
 
           return 1;
       }
-
     }
+
     public function select($variables = '*')
     {
       $this->_query .= 'SELECT ';
 
       if(is_array($variables)){
+        $first = true;
         foreach($variables as $key => $variable ){
           if(is_int($key)){
+            if(!$first) $this->_query.=', ';
             $this->_query .= $variable.' ';
           }else{
+            if(!$first) $this->_query.=', ';
             $this->_query .= $variable.' AS '.$key.' ';
           }
+          $first=false;
         }
       }elseif($variables == 'all'){
         $this->_query .= '* ';
       }else{
         $this->_query .= $variables.' ';
       }
+      $this->_query .= 'FROM '.$this->_table.' ';
 
       return $this;
-
     }
-    public function where($variables)
-    {
-      $first = true;
-      $this->_query .= 'WHERE ';
 
-      if(is_array($variables)){
-        foreach($variables as $key => $variable ){
-          if($first){
-            $this->_query .= $key.'= ? ';
+    public function where($variables = '' )
+    {
+      if(!empty($variables)){
+        $first = true;
+        $this->_query .= 'WHERE ';
+
+        if(is_array($variables)){
+          foreach($variables as $key => $variable ){
+
+            $key = explode(' ',$key);
+            if(isset($key[1])){
+              if(!$first) $this->_query .= 'AND ';
+              $this->_query .= $key[0].' '.$key[1].' ? ';
+            }else{
+              if(!$first) $this->_query .= 'AND ';
+              $this->_query .= $key[0].' = ? ';
+            }
             $first = false;
-          }else{
-            $this->_query .= 'AND '.$key.'= ? ';
+
+            array_push($this->_bindValues,$variable);
           }
-          array_push($this->_bindValues,$variable);
+        }
+      }
+      return $this;
+    }
+
+    public function addOr()
+    {
+      $this->_query .= 'OR ';
+
+      return $this;
+    }
+
+    public function having($variables = '')
+    {
+      if(!empty($variables)){
+        $first = true;
+        $this->_query .= 'HAVING ';
+
+        if(is_array($variables)){
+          foreach($variables as $key => $variable ){
+
+            $key = explode(' ',$key);
+            if(isset($key[1])){
+              if(!$first) $this->_query .= 'AND ';
+              $this->_query .= $key[0].' '.$key[1].' ? ';
+            }else{
+              if(!$first) $this->_query .= 'AND ';
+              $this->_query .= $key[0].' = ? ';
+            }
+            $first = false;
+
+            array_push($this->_bindValues,$variable);
+          }
         }
       }
 
       return $this;
-
     }
-    public function addOr()
+
+    public function group($variables='id')
     {
-      $this->_query .= 'OR ';
+      $this->_query .= 'GROUP BY ';
+
+      if(is_array($variables)){
+        $first = true;
+        foreach($variables as $variable ){
+
+          if(!$first) $this->_query.=', ';
+          $this->_query .= $variable.' ';
+
+          $first=false;
+        }
+      }elseif($variables == 'id'){
+        $this->_query .= 'id ';
+      }else{
+        $this->_query .= $variables.' ';
+      }
 
       return $this;
     }

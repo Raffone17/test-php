@@ -17,12 +17,12 @@ $routes = array(
   'GET:/home' => array(
     'MyController' => 'homePage'
   ),
-  'POST:/users/{id}' => array(
-    'MyController' => 'homePage'
+  'POST:/users/{id}/ciao/{ancora}' => array(
+    'MyController' => 'homePage4'
   ),
   'GET:/add' => array(
     'MyController' => 'homePage2'
   ),
   'GET:/cerca' => array('MyController' => 'cerca'),
-  'GET:/prova' => array('SetView' => 'home'),
+  'GET:/home/prova' => array('SetView' => 'home'),
 );

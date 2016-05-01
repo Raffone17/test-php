@@ -1,4 +1,7 @@
 <?php
+/**
+ *  LOGMAKE
+ */
  /**
   * Simple log maker class, with methods for insert error logs or warnings.
   *

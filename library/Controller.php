@@ -1,5 +1,8 @@
 <?php
   /**
+   *  CONTROLLER
+   */
+  /**
   * This is the main Controller class.
   * The use of this class is the comunication between the Template class,
   * the routes and the model.
@@ -14,9 +17,11 @@ class Controller
     protected $_model;
     protected $_controller_action;
     protected $_variables_to_view;
-    protected $_variables;
+    //protected $_variables;
     protected $_template;
     protected $_view;
+    protected $request;
+    protected $Request;
 
     /**
     * In the costruct method the class set the name of method that will use
@@ -26,14 +31,35 @@ class Controller
     *
     * @param $variable_array array of variables
     * @param $controller_action name of the method of the controller will use
+    * @param $method request method
     */
 
-    public function __construct($variable_array, $controller_action)
+    public function __construct($variable_array, $controller_action , $method)
     {
+        $this->Request = new Request;
+        $this->_template = new Template();
+
+        switch ($method){
+            case 'POST:':
+            $this->request = $this->Request->post();
+            break;
+            case 'GET:':
+            $this->request = $this->Request->get();
+            break;
+            case 'PUT:':
+            $this->request = $this->Request->put();
+            break;
+            case 'DELETE:':
+            $this->request = $this->Request->get();
+            break;
+        }
+
         $this->_controller_action = $controller_action;
         $this->variables = $variable_array;
         if (method_exists(get_class($this), $controller_action)) {
-            $this->_variables_to_view = $this->$controller_action();
+            //$this->_variables_to_view = $this->$controller_action();
+
+            $this->_variables_to_view = call_user_func_array(array($this, $controller_action),$variable_array);
         }elseif (substr_count($controller_action, 'SetView:') > 0){
             $this->_view = str_replace("SetView:","",$controller_action);
         } else {
@@ -44,6 +70,10 @@ class Controller
     public function set($name, $value)
     {
         $this->_template->set($name, $value);
+    }
+    public function setView($name)
+    {
+        $this->_view = $name;
     }
 
     /**
@@ -57,7 +87,9 @@ class Controller
     public function __destruct()
     {
         $view = $this->_view;
+
         $variables = $this->_variables_to_view;
+        //debug($variables);
         if ($this->_model instanceof Model) {
             $name = strtolower(get_class($this->_model)).'s';
         } elseif (!empty($this->_model)) {
@@ -66,8 +98,8 @@ class Controller
             $name = 'all';
         }
 
-        $this->_template = new Template($view, $variables);
+        $this->_template->construct($view, $variables);
 
-        $this->_template->render($name);
+        $this->_template->render();
     }
 }

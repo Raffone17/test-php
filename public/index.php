@@ -17,7 +17,9 @@ define('ROOT', dirname(dirname(__FILE__)));
   *
   */
 
+//$url = $_SERVER['REDIRECT_URL'];
 $url = $_SERVER['REQUEST_URI'];
+
 
 //echo "URL: ".$url. "<br>";
 
