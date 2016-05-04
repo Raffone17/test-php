@@ -56,6 +56,15 @@ function clean($string)
 
     return $string;
 }
+function stripTagsArray(&$array)
+{
+  function funct(&$value,&$key)
+  {
+      $key=strip_tags($key);
+      $value=strip_tags($value);
+  }
+  array_walk_recursive($array,"funct");
+}
 
 function memoryUsage()
 {

@@ -3,8 +3,7 @@
 
 <h1> BENVENUTI </h1>
 <a href="home">Cliccami</a>
-<?php $a=102;debug(get_defined_vars()); ?>
-<?php
+<?php $a=102;
 /*$included_files = get_included_files();
 echo "test";
 foreach ($included_files as $filename) {

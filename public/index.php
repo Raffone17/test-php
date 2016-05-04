@@ -19,11 +19,15 @@ define('ROOT', dirname(dirname(__FILE__)));
 
 //$url = $_SERVER['REDIRECT_URL'];
 $url = $_SERVER['REQUEST_URI'];
-
+//echo $url;
 
 //echo "URL: ".$url. "<br>";
 
-require_once (ROOT . DS . 'library' . DS . 'Bootstrap.php');
 
+
+
+require_once (ROOT . DS . 'library' . DS . 'Bootstrap.php');
+//tripTagsArray($ciao);
 //echo $text_all;
+
 exit();

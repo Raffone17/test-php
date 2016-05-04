@@ -36,12 +36,22 @@ class Template
     public function construct($view, $variables)
     {
         $this->_view = $view;
+        if(is_array($variables)){
+          stripTagsArray($variables);
+        }else{
+          $variables=strip_tags($variables);
+        }
         $this->variables = $variables;
     }
 
     /** Set Variables **/
     public function set($name, $value)
     {
+        if(is_array($value)){
+          stripTagsArray($value);
+        }else{
+          $value=strip_tags($value);
+        }
         $this->variables[$name] = $value;
     }
 
@@ -59,13 +69,6 @@ class Template
     public function render()
     {
         if (is_array($this->variables)) {
-            //debug($this->variables);
-            //echo "<br>";
-            //$this->variables = $this->variables;
-            //debug($this->variables);
-            /*array_walk_recursive($this->variables, function (&$value) {
-                $value = htmlentities($value);
-            });*/
             extract($this->variables);
         }
         if (file_exists(ROOT.DS.'application'.DS.'views'.DS.$this->_view.'.php')) {
@@ -107,7 +110,7 @@ class Template
     }
     public function content($name)
     {
-      
+        //debug($this->_sections[$name]);
         echo $this->_sections[$name];
     }
 

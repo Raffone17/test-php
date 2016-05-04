@@ -34,9 +34,9 @@ class MyController extends Controller
     {
 
       $this->_model = new User;
-      $array = array('email'=>'ornorinco@email.com','password'=>'Carlo Rossi','username' => 'Ciccio');
+      $array = array('email'=>'ornorindas@email.com','citta'=>'Napoli','nome' => '<script>alert("CiaoMondo!");</script>');
       $result = 'prova';
-      $result = $this->_model->addRow($array);
+      //$result = $this->_model->addRow($array);
       $this->_view = "home2";
       echo $result;
       return $result;
@@ -50,7 +50,7 @@ class MyController extends Controller
       /*$result2 = json_encode($result);
       echo "<br>json_encode:".$result2;
       echo "<br>json_dencode:".print_r(json_decode($result2));*/
-      return $result;
+      //return $result;
 
     }
     protected function homePage4($first,$second)
