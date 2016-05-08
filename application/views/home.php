@@ -26,8 +26,8 @@
  /*if(isset($_GET['search'])){
 	 echo $_GET['search'];
  }*/
- echo $users[7]['email'];
- debug($users);
+ //echo $users[7]['email'];
+ //debug($users);
  //debug($get);
  //debug($_SERVER);
  //debug($_SESSION);

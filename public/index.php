@@ -29,5 +29,6 @@ $url = $_SERVER['REQUEST_URI'];
 require_once (ROOT . DS . 'library' . DS . 'Bootstrap.php');
 //tripTagsArray($ciao);
 //echo $text_all;
+//debug($_SERVER);
 
 exit();

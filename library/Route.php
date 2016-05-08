@@ -26,8 +26,11 @@ class Route
     public function urlRouting()
     {
         $requested_variabiles = 0;
-        $url = $this->url;
+        $counturl = 0;
 
+
+        //****$result = routingAction($this->routes,$this->url,$counturl);*****cpp
+        // ------- start routing --------
         // check if there is a '?' simbol in the url, and delete everything come after.
         if (strstr($this->url, '?')) {
             $this->url = substr($this->url, 0, strpos($this->url, '?'));
@@ -37,14 +40,10 @@ class Route
         $routes = $this->routes;
         $variable_array = array();
 
-        $url_array = $this->url;
-        $url_array = urldecode($url_array);
-        //echo $url_array . "<br>";
 
-        $url_array = clean($url_array);
-        //echo $url_array;
+        $url_array = urldecode($this->url);
+        //$url_array = clean($url_array);
 
-      //  $url_array= substr($url_array, 0, strpos($url_array, "?"));
 
         // check if there is public in the url, and delete everything before. For development enviroment
         $url_array = explode('/', $url_array);
@@ -52,8 +51,12 @@ class Route
             while ($url_array[0] !== 'public') {
                 array_shift($url_array);
             }
-            array_shift($url_array);
+
         }
+        array_shift($url_array);
+        // check if there is the SERVER_NAME in the begin of the url, and delete that.
+
+
         foreach ($url_array as $route) {
             $route = trim($route);
         }
@@ -68,16 +71,16 @@ class Route
 
           //echo count($uri_array);
 
-            $method = array_shift($uri_route);
+              $method = array_shift($uri_route);
 
               $url_variables = 0;
               $same = true;
-              if (count($url_array) != count($uri_route)) {
+              if (count($url_array) != count($uri_route) || $method != $_SERVER['REQUEST_METHOD'].':') {
                   $same = false;
               } else {
-                  for ($i = 0; $i < count($uri_route) && $same == true; ++$i) {
+                  for ($i = 0; $i < count($uri_route) && $same == true; $i++) {
                       //echo "analizziamo: ".$uri_array[$i]."  ".$url_array[$i]."<br>";
-                    if (isset($uri_route[$i]) && isset($url_array[$i])) {
+                    //if (isset($uri_route[$i]) && isset($url_array[$i])) {
                         if (substr($uri_route[$i], 0, 1) == '{' && substr($uri_route[$i], -1) == '}') {
                             ++$url_variables;
                             array_push($variable_array, $url_array[$i]);
@@ -85,8 +88,9 @@ class Route
                             $same = false;
                           //echo "diverso ".$uri_array[$i]."  ".$url_array[$i]."<br>";
                         }
-                    }
+
                   }
+
               }
               if ($same == true) {
                   $controller_action = $funct;
@@ -94,12 +98,14 @@ class Route
                   $controller = $control;
 
                   break 2;
+              }else{
+                $variable_array = array();
               }
           }
         }
         if ($same == false) {
             $method = 'GET:';
-          //echo "No method";
+
         }
 
         if (empty($controller_action)) {
@@ -110,7 +116,12 @@ class Route
             $controller_action = 'SetView:'.$controller_action;
             $controller = 'Controller';
         }
+        // ---- end routing ------
+        /******$method = array_shift($result);
+        $controller = array_shift($result);
+        $controller_action = array_shift($result);***cpp***/
 
+        //****$dispatch = new $controller($result, $controller_action, $method);*****cpp
         $dispatch = new $controller($variable_array, $controller_action, $method);
 
         self::$counturl = $counturl;

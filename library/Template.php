@@ -112,6 +112,7 @@ class Template
     {
         //debug($this->_sections[$name]);
         echo $this->_sections[$name];
+        //templateRender($this->_sections[$name]);
     }
 
     public function contentStart($name)
