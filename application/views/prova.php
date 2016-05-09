@@ -9,7 +9,19 @@ echo "test";
 foreach ($included_files as $filename) {
     echo "$filename\n";
 }*/
+
 ?>
+<?= $a ?>
+ {{ $a }} <br />
+ {% foreach($baci as $bo) %}
+ bla bla bla
+ {% endforeach %} <br />
+ {% if(bla bla bla) %}<br />
+ succede qualcosa;<br />
+ {% endif %}
+<
+>
+
 
 <?php $this->contentStop()?>
 <?php $this->contentStart("menu") ?>

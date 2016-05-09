@@ -111,8 +111,9 @@ class Template
     public function content($name)
     {
         //debug($this->_sections[$name]);
-        echo $this->_sections[$name];
+        //echo $this->_sections[$name];
         //templateRender($this->_sections[$name]);
+        renderTemplate($this->_sections[$name]);
     }
 
     public function contentStart($name)
@@ -125,6 +126,48 @@ class Template
     {
       end($this->_sections);
       $this->_sections[key($this->_sections)] = ob_get_clean();
+
+    }
+    public function renderTemplate(&$content)
+    {
+        $constrFlag = false;
+        $phpFlag = false;
+        $i;
+
+       for( $i=0; $i<strlen($content); $i++){
+            if($content[$i]=='{' && $content[$i+1] == '{'){
+              echo "<?=";
+              $i++;
+            }else if($content[$i]=='}' && $content[$i+1] == '}'){
+              echo "?>";
+              $i++;
+            }else if($content[$i]=='{' && $content[$i+1] == '%'){
+              echo "<?php ";
+              $phpFlag = true;
+              $i++;
+            }else if($content[$i]=='%' && $content[$i+1] == '}'){
+              if($constrFlag){
+                echo ": ?>";
+                $constrFlag = false;
+              }else{
+                echo "?>";
+              }
+              $i++;
+              $phpFlag = false;
+            }else{
+                echo $content[$i];
+
+            }
+
+
+            if($phpFlag && !$constrFlag){
+              if(($content[$i]=='f'&& $content[$i+1] == 'o' && $content[$i+2] == 'r' && $content[$i-1] != 'd') ||
+               ($content[$i] == 'i'&& $content[$i+1] == 'f' && $content[$i-1] != 'd')){
+                $constrFlag = true;
+              }
+            }
+
+       }
 
     }
 }
