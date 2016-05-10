@@ -92,7 +92,7 @@ class SQLQuery
     {
       try {
           $stmt = $this->_dbHandle->prepare($this->_query);
-          debug($this->_query);
+          //debug($this->_query);
           if(isset($this->_bindValues) && is_array($this->_bindValues) && !empty($this->_bindValues)){
             $i = 1;
             foreach ($this->_bindValues as $key => $value) {

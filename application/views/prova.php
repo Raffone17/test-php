@@ -9,14 +9,14 @@ echo "test";
 foreach ($included_files as $filename) {
     echo "$filename\n";
 }*/
-
+$b = true;
 ?>
 <?= $a ?>
  {{ $a }} <br />
- {% foreach($baci as $bo) %}
- bla bla bla
- {% endforeach %} <br />
- {% if(bla bla bla) %}<br />
+ {% for($i=0; $i<10; $i++) %}
+ {{ $i }}
+ {% endfor %} <br />
+ {% if($b) %}<br />
  succede qualcosa;<br />
  {% endif %}
 <

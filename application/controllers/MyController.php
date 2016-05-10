@@ -24,6 +24,8 @@ class MyController extends Controller
       $users = $this->_model->select()->execute();
       //$this->_view = "home";
       $this->setView("home");
+      $this->set("ciao","prova");
+      //$view = "prova";
       //debug($result);
       //debug(compact("users","get"));
       //print_r($_REQUEST);

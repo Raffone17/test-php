@@ -86,10 +86,12 @@ class Controller
 
     public function __destruct()
     {
-        $view = $this->_view;
 
-        $variables = $this->_variables_to_view;
-        //debug($variables);
+        if(array_key_exists('view',$this->_variables_to_view)){
+            $this->_view = $this->_variables_to_view['view'];
+            unset($this->_variables_to_view['view']);
+        }
+        //debug($this->_variables_to_view);
         if ($this->_model instanceof Model) {
             $name = strtolower(get_class($this->_model)).'s';
         } elseif (!empty($this->_model)) {
@@ -98,7 +100,7 @@ class Controller
             $name = 'all';
         }
 
-        $this->_template->construct($view, $variables);
+        $this->_template->construct($this->_view, $this->_variables_to_view);
 
         $this->_template->render();
     }
