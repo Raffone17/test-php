@@ -23,7 +23,7 @@ class MyController extends Controller
       //$result = $this->_model->selectAll();
       $users = $this->_model->select()->execute();
       $users = new User;
-      $users = $users->select(['username','role'])->execute();
+      $users = $users->select()->where(["id"=>1])->execute();
       //$this->_view = "home";
       $this->setView("home");
       $this->set("ciao","prova");

@@ -22,6 +22,7 @@ class Controller
     protected $_view;
     protected $request;
     protected $Request;
+    protected $_json;
 
     /**
     * In the costruct method the class set the name of method that will use
@@ -34,10 +35,11 @@ class Controller
     * @param $method request method
     */
 
-    public function __construct($variable_array, $controller_action , $method)
+    public function __construct($variable_array, $controller_action , $method ,$json)
     {
         $this->Request = new Request;
         $this->_template = new Template();
+        $this->_json = $json;
 
         switch ($method){
             case 'POST:':
@@ -99,6 +101,10 @@ class Controller
             $name = $this->_model;
         } else {
             $name = 'all';
+        }
+        if($this->_json){
+          //$this->_variables_to_view = json_encode($this->_variables_to_view);
+          var_dump(json_encode($this->_variables_to_view));die;
         }
 
         $this->_template->construct($this->_view, $this->_variables_to_view);

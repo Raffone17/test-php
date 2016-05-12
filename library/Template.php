@@ -84,8 +84,9 @@ class Template
             }else{
 
               $tmp = $this->renderTemplate(ROOT.DS.'application'.DS.'views'.DS.$this->_view.'.php', $this->_view);
-
-              include $tmp;
+              if($tmp != false){
+                include $tmp;
+              }
             }
         } else {
             global $log;
@@ -151,14 +152,22 @@ class Template
         $size = filesize($content);
         $read = fopen($content, 'r');
         $tmpFile = ROOT.DS.'tmp'.DS.'templateCache'.DS.$name.'%'.$size.'.php';
-        $write = fopen($tmpFile,'w');
+
         $constrFlag = false;
         $phpFlag = false;
-        $i;
         $char2 ='';
         $char3 ='';
         $charpre = '';
         $scritto = false;
+
+        if(is_writable(dirname($tmpFile))){
+            $write = fopen($tmpFile,'w');
+            echo "aperto";
+        }else{
+          echo "non aperto";
+           return false;
+        }
+
 
          while (false !== ($char = fgetc($read))){
            if($char2 == '' ){

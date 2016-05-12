@@ -14,9 +14,9 @@
 [2016-02-11 22:01:42] Error: Autoload errore, Classe url non esiste!
 [2016-02-14 12:56:29] Error: Template render error on  homes not found!
 [2016-02-14 12:57:04] Error: Template render error on  "homes" not found!
-[2016-02-17 19:40:33] Error: DbError not an array in method addRow 
-[2016-02-21 20:12:14] Error: DbError not an array in method addRow 
-[2016-02-21 20:12:16] Error: DbError not an array in method addRow 
+[2016-02-17 19:40:33] Error: DbError not an array in method addRow
+[2016-02-21 20:12:14] Error: DbError not an array in method addRow
+[2016-02-21 20:12:16] Error: DbError not an array in method addRow
 [2016-02-22 16:40:35] Error: DbError _foreign is not an array or is empty
 [2016-02-23 18:48:02] Error: DbError  SQLSTATE[HY000] [1040] Too many connections
 [2016-02-23 18:48:02] Error: DbError  SQLSTATE[08004] [1040] Too many connections

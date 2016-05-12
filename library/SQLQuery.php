@@ -24,11 +24,11 @@ class SQLQuery
     {
         try {
             $this->_dbHandle = new PDO('mysql:host='.$address.';dbname='.$dbname.';charset=utf8', ''.$account.'', ''.$pwd.'');
-
+            $this->_dbHandle->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return 1;
-        } catch (PDOException $e) {
+        } catch (PDOException $ex) {
             global $log;
-            $error = 'DbError  '.$e->getMessage();
+            $error = 'DbError  '.$ex->getMessage();
             $log->logError($error);
 
             return 0;
@@ -40,9 +40,9 @@ class SQLQuery
     {
         try {
             $this->_dbHandle = null;
-        } catch (PDOException $e) {
+        } catch (PDOException $ex) {
             global $log;
-            $error = 'DbError '.$e->getMessage();
+            $error = 'DbError '.$ex->getMessage();
             $log->logError($error);
             die();
 
@@ -61,7 +61,7 @@ class SQLQuery
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $ex) {
             global $log;
-            $error = 'DbError '.$e->getMessage();
+            $error = 'DbError '.$ex->getMessage();
             $log->logError($error);
 
             return 1;
@@ -82,7 +82,7 @@ class SQLQuery
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $ex) {
             global $log;
-            $error = 'DbError '.$e->getMessage();
+            $error = 'DbError '.$ex->getMessage();
             $log->logError($error);
 
             return 1;
@@ -109,10 +109,10 @@ class SQLQuery
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
       } catch (PDOException $ex) {
           global $log;
-          $error = 'DbError '.$e->getMessage();
+          $error = 'DbError '.$ex->getMessage();
           $log->logError($error);
 
-          return 1;
+
       }
     }
 
@@ -259,7 +259,7 @@ class SQLQuery
               return $stmt->rowCount();
             } catch (PDOException $ex) {
                 global $log;
-                $error = 'DbError '.$e->getMessage();
+                $error = 'DbError '.$ex->getMessage();
                 $log->logError($error);
 
                 return 1;
@@ -282,7 +282,7 @@ class SQLQuery
             return $this->_result;
         } catch (PDOException $ex) {
             global $log;
-            $error = 'DbError '.$e->getMessage();
+            $error = 'DbError '.$ex->getMessage();
             $log->logError($error);
 
             return 1;

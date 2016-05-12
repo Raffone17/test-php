@@ -27,6 +27,7 @@ class Route
     {
         $requested_variabiles = 0;
         $counturl = 0;
+        $json = false;
 
 
         //****$result = routingAction($this->routes,$this->url,$counturl);*****cpp
@@ -34,6 +35,10 @@ class Route
         // check if there is a '?' simbol in the url, and delete everything come after.
         if (strstr($this->url, '?')) {
             $this->url = substr($this->url, 0, strpos($this->url, '?'));
+        }
+        if(strstr($this->url,'.json')){
+            $this->url = substr($this->url, 0, strpos($this->url, '.json'));
+            $json = true;
         }
 
         // initialize routes array and variable array
@@ -122,7 +127,7 @@ class Route
         $controller_action = array_shift($result);***cpp***/
 
         //****$dispatch = new $controller($result, $controller_action, $method);*****cpp
-        $dispatch = new $controller($variable_array, $controller_action, $method);
+        $dispatch = new $controller($variable_array, $controller_action, $method, $json);
 
         self::$counturl = $counturl;
 
