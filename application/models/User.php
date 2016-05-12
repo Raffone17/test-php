@@ -8,10 +8,16 @@
   */
 Class User extends Model{
 
-  function __construct(){
+  /*function __construct(){
     parent::__construct();
-      $this->foreign(array('id_user'=>array('table','id')));
+      //$this->foreign(array('id_user'=>array('table','id')));
 
+  }*/
+  public function init()
+  {
+    $this->hasOne('users_details');
+    $this->belongsTo('logins');
+    //debug($this->_joins);
   }
 
 }
@@ -21,9 +27,9 @@ Class User extends Model{
   *
   *
   *  Class User extends Model{
-  *        function __construct(){
-  *        parent::__construct();
-  *        $this->_table = "users";
+  *        function init(){
+  *
+  *        $this->table("users");
   *      }
   *   }
   */

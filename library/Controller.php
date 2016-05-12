@@ -86,10 +86,11 @@ class Controller
 
     public function __destruct()
     {
-
-        if(array_key_exists('view',$this->_variables_to_view)){
-            $this->_view = $this->_variables_to_view['view'];
-            unset($this->_variables_to_view['view']);
+        if(is_array($this->_variables_to_view)){
+          if(array_key_exists('view',$this->_variables_to_view)){
+              $this->_view = $this->_variables_to_view['view'];
+              unset($this->_variables_to_view['view']);
+          }
         }
         //debug($this->_variables_to_view);
         if ($this->_model instanceof Model) {

@@ -302,10 +302,119 @@ class SQLQuery
 
           return 1;
       }
-
-
+    }
+    /******* ADD JOIN TO QUERY *******/
+    public function join($tab)
+    {
+      if(is_array($tab)){
+        foreach($tab as $var){
+          foreach($this->_joins as $key => $join){
+            if($var == $key){
+              $this->_query .= 'JOIN '.$join[0].' ON '.$join[1].'='.$join[2].' ';
+            }
+          }
+        }
+      }else{
+        foreach($this->_joins as $key => $join){
+          if($tab == $key){
+            $this->_query .= 'JOIN '.$join[0].' ON '.$join[1].'='.$join[2].' ';
+          }
+        }
+      }
+      return $this;
     }
 
+    public function leftJoin($tab)
+    {
+      if(is_array($tab)){
+        foreach($tab as $var){
+          foreach($this->_joins as $key => $join){
+            if($var == $key){
+              $this->_query .= 'LEFT JOIN '.$join[0].' ON '.$join[1].'='.$join[2].' ';
+            }
+          }
+        }
+      }else{
+        foreach($this->_joins as $key => $join){
+          if($tab == $key){
+            $this->_query .= 'LEFT JOIN '.$join[0].' ON '.$join[1].'='.$join[2].' ';
+          }
+        }
+      }
+      return $this;
+    }
+
+    public function rightJoin($tab)
+    {
+      if(is_array($tab)){
+        foreach($tab as $var){
+          foreach($this->_joins as $key => $join){
+            if($var == $key){
+              $this->_query .= 'RIGHT JOIN '.$join[0].' ON '.$join[1].'='.$join[2].' ';
+            }
+          }
+        }
+      }else{
+        foreach($this->_joins as $key => $join){
+          if($tab == $key){
+            $this->_query .= 'RIGHT JOIN '.$join[0].' ON '.$join[1].'='.$join[2].' ';
+          }
+        }
+      }
+      return $this;
+    }
+
+    public function fullJoin($tab)
+    {
+      if(is_array($tab)){
+        foreach($tab as $var){
+          foreach($this->_joins as $key => $join){
+            if($var == $key){
+              $this->_query .= 'FULL OUTER JOIN '.$join[0].' ON '.$join[1].'='.$join[2].' ';
+            }
+          }
+        }
+      }else{
+        foreach($this->_joins as $key => $join){
+          if($tab == $key){
+            $this->_query .= 'FULL OUTER JOIN '.$join[0].' ON '.$join[1].'='.$join[2].' ';
+          }
+        }
+      }
+      return $this;
+    }
+    /******  RELATIONSHIP FUNCTIONS **********/
+    public function hasOne($tab,$key=null){
+      if($key == null){
+        $this->_joins[$tab] = array($tab,$this->_table.".id",$tab.".".substr($this->_table, 0, -1)."_id");
+      }else {
+        $this->_joins[$tab] = array($tab,$this->_table.".id",$tab.".".$key);
+      }
+
+    }
+    public function hasMany($tab,$key=null){
+      if($key == null){
+        $this->_joins[] = array($tab,$this->_table.".id",$tab.".".substr($this->_table, 0, -1)."_id");
+      }else {
+        $this->_joins[] = array($tab,$this->_table.".id",$tab.".".$key);
+      }
+
+    }
+    public function belongsTo($tab,$key=null){
+      if($key == null){
+        $this->_joins[$tab] = array($tab,$this->_table.".".substr($tab, 0, -1)."_id",$tab.".id");
+      }else {
+        $this->_joins[$tab] = array($tab,$this->_table.".".$key,$tab.".id");
+      }
+
+    }
+    public function belongsToMany($tab,$key=null){
+      if($key == null){
+        $this->_joins[$tab] = array($tab,$this->_table.".".substr($tab, 0, -1)."_id",$tab.".id");
+      }else {
+        $this->_joins[$tab] = array($tab,$this->_table.".".$key,$tab.".id");
+      }
+    }
     /** Get number of rows **/
     public function getNumRows()
     {

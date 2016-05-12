@@ -27,6 +27,10 @@ class Model extends SQLQuery {
         $this->connect(DB_HOST,DB_NAME,DB_USER,DB_PASSWORD);
         $this->_model = get_class($this);
         $this->_table = strtolower($this->_model)."s";
+        $this->init();
+    }
+    public function table($tab){
+        $this->_table = $tab;
     }
     /**
     * Descturct

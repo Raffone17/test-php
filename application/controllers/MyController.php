@@ -22,6 +22,8 @@ class MyController extends Controller
       $get = $this->request;
       //$result = $this->_model->selectAll();
       $users = $this->_model->select()->execute();
+      $users = new User;
+      $users = $users->select(['username','role'])->execute();
       //$this->_view = "home";
       $this->setView("home");
       $this->set("ciao","prova");

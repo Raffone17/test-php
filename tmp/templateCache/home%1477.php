@@ -37,18 +37,18 @@
 
 
  ?>
- {% $a=10213;  %}
- {% $b= true; %}
- {{ $a }} <br />
- {% for($i=0; $i<10; $i++) %}
- {{ $i }}
- {% endfor %} <br />
- {% if($b) %}<br />
+ <?php $a=10213;  ?>
+ <?php $b= true; ?>
+ <?= $a ?> <br />
+ <?php for($i=0; $i<10; $i++) : ?>
+ <?= $i ?>
+ <?php endfor ?> <br />
+ <?php if($b) : ?><br />
  succede qualcosa;<br />
- {% endif %}
+ <?php endif ?>
 
 
 	 <h1> CIAO!!!<h1>
 	</div>
 </body>
-</html>c
+</html>

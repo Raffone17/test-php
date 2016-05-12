@@ -38,11 +38,11 @@ class Template
         $this->_view = $view;
         if(is_array($variables)){
           stripTagsArray($variables);
+          foreach($variables as $key => $var){
+            $this->variables[$key] = $var;
+          }
         }else{
           $variables=strip_tags($variables);
-        }
-        foreach($variables as $key => $var){
-          $this->variables[$key] = $var;
         }
         //$this->variables = $variables;
     }
@@ -77,7 +77,16 @@ class Template
             //debug($this->variables);
         }
         if (file_exists(ROOT.DS.'application'.DS.'views'.DS.$this->_view.'.php')) {
-            include ROOT.DS.'application'.DS.'views'.DS.$this->_view.'.php';
+            $tmp = $this->existsTemp(ROOT.DS.'application'.DS.'views'.DS.$this->_view.'.php',$this->_view);
+            if($tmp != false){
+
+              include $tmp;
+            }else{
+
+              $tmp = $this->renderTemplate(ROOT.DS.'application'.DS.'views'.DS.$this->_view.'.php', $this->_view);
+
+              include $tmp;
+            }
         } else {
             global $log;
             if (isset($this->_view) && isset($log)) {
@@ -136,47 +145,111 @@ class Template
       $this->_sections[key($this->_sections)] = ob_get_clean();
 
     }
-    public function renderTemplate(&$content)
+    public function renderTemplate($content,&$name)
     {
+        array_map('unlink', glob(ROOT.DS.'tmp'.DS.'templateCache'.DS.$name."*.php"));
+        $size = filesize($content);
+        $read = fopen($content, 'r');
+        $tmpFile = ROOT.DS.'tmp'.DS.'templateCache'.DS.$name.'%'.$size.'.php';
+        $write = fopen($tmpFile,'w');
         $constrFlag = false;
         $phpFlag = false;
         $i;
+        $char2 ='';
+        $char3 ='';
+        $charpre = '';
+        $scritto = false;
 
-       for( $i=0; $i<strlen($content); $i++){
-            if($content[$i]=='{' && $content[$i+1] == '{'){
-              //$content = substr_replace($content, "<?=", $i,2);
-              $content = substr_replace($content, '<?=', $i,2);
-              $i++;
-            }else if($content[$i]=='}' && $content[$i+1] == '}'){
-              $content = substr_replace($content, '?>', $i,2);
-              $i++;
-            }else if($content[$i]=='{' && $content[$i+1] == '%'){
-              $content = substr_replace($content, '<?php', $i,2);
-              $phpFlag = true;
-              $i++;
-            }else if($content[$i]=='%' && $content[$i+1] == '}'){
-              if($constrFlag){
-                $content = substr_replace($content, ': ?>', $i,2);
-                $constrFlag = false;
+         while (false !== ($char = fgetc($read))){
+           if($char2 == '' ){
+             $char2 = fgetc($read);
+           }else{
+             $tmp = $char;
+             $char = $char2;
+             $char2 = $char3;
+             $char3 = $tmp;
+           }
+           if(isset($char2) && !empty($char2)){
+             if($char2 !== false){
+              if($char=='{' && $char2 == '{'){
+                //$content = substr_replace($content, "<?=", $i,2);
+                //$content = substr_replace($content, '<?=', $i,2);
+                fwrite($write, '<?=');
+                $scritto = true;
+
+              }else if($char=='}' && $char2 == '}'){
+                // $content = substr_replace($content, '>', $i,2);
+                fwrite($write, '?>');
+                $scritto = true;
+              }else if($char=='{' && $char2 == '%'){
+                fwrite($write, '<?php');
+                $phpFlag = true;
+                $scritto = true;
+
+              }else if($char=='%' && $char2 == '}'){
+                if($constrFlag){
+                  fwrite($write, ': ?>');
+                  $constrFlag = false;
+                  $scritto = true;
+                }else{
+                  fwrite($write, '?>');
+                  $scritto = true;
+                }
+                $phpFlag = false;
               }else{
-                $content = substr_replace($content, '?>', $i,2);
+                if(!$scritto){
+                  fwrite($write, $char);
+                }else{
+                  $scritto = false;
+                }
+
               }
-              $i++;
-              $phpFlag = false;
+              if($char3 == ''){
+                $char3 = fgetc($read);
+              }
+
+                if($phpFlag && !$constrFlag){
+                  if(($char=='f'&& $char2 == 'o' && $char3 == 'r' && $charpre != 'd') ||
+                   ($char == 'i'&& $char2 == 'f' && $charpre != 'd')){
+                    $constrFlag = true;
+                  }
+                }
+
+
+              $charpre = $char;
+
             }else{
-                //echo $content[$i];
+              //fwrite($write,$char);
+            }
+              /*if(false !== ($char3 = fgetc($read))){
+                if($phpFlag && !$constrFlag){
+                  if(($char=='f'&& $char2 == 'o' && $char3 == 'r' && $content[$i-1] != 'd') ||
+                   ($content[$i] == 'i'&& $content[$i+1] == 'f' && $content[$i-1] != 'd')){
+                    $constrFlag = true;
+                  }
+                }
 
+              }*/
+
+            }else{
+              fwrite($write, $char);
             }
 
+          }
+          fclose($write);
+          fclose($read);
 
-            if($phpFlag && !$constrFlag){
-              if(($content[$i]=='f'&& $content[$i+1] == 'o' && $content[$i+2] == 'r' && $content[$i-1] != 'd') ||
-               ($content[$i] == 'i'&& $content[$i+1] == 'f' && $content[$i-1] != 'd')){
-                $constrFlag = true;
-              }
-            }
+          return $tmpFile;
 
-       }
+    }
+    public function existsTemp($content,&$name = "ciao"){
+      $size = filesize($content);
+      $tmpName = ROOT.DS.'tmp'.DS.'templateCache'.DS.$name.'%'.$size.'.php';
+      if(file_exists($tmpName)){
+        return $tmpName;
+      }
+        return false;
+
 
     }
 }
